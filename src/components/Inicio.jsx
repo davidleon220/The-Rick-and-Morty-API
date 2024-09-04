@@ -9,22 +9,24 @@ const [personajes, setPersonajes] = useState(null)
   }, [])
 
   return (
-    <>
-    {personajes != null ? (
-      personajes.map(personaje => (
-        <div key={personaje.id}>
-          <a href={`/personaje/${personaje.id}`}>{personaje.name}</a>
-          {/* <img src={personaje.image} alt=''></img> */}
-        </div>
-      ))
-    ) : ('No hay personajes')}
-    
-    
-    
-    
-    
-    </>
-  )
-}
+    <div className="contenedor">
+      <h1>Lista de Personajes</h1>
+      <div className="personaje-list">
+        {personajes != null ? (
+          personajes.map(personaje => (
+            <div className="personaje-item" key={personaje.id}>
+              <a href={`/personaje/${personaje.id}`}>
+                {personaje.name}
+              </a>
+              {/* <img src={personaje.image} alt={personaje.name} /> */}
+            </div>
+          ))
+        ) : (
+          <p>No hay personajes</p>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default Inicio

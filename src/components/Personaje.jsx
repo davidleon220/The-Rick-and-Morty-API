@@ -11,16 +11,18 @@ const Personaje = () => {
     unicoPersonaje(params.id, setPersonaje)
   }, [])
   return (
-    <>
+    <div className="contenedor">
       {personaje != null ? (
-        <div>
+        <div className="personaje-detail">
           <h2>Personaje con el id {params.id}</h2>
-          <p>con el nombre {personaje.name}</p>
-          <img src={personaje.image} alt=''></img>
+          <p>Nombre: {personaje.name}</p>
+          <img src={personaje.image} alt={personaje.name} />
         </div>
-      ) : ('no hay personajes')}
-    </>
-  )
-}
+      ) : (
+        <p>No hay personajes</p>
+      )}
+    </div>
+  );
+};
 
 export default Personaje
